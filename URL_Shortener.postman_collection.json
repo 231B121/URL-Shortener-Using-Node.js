@@ -1,0 +1,125 @@
+{
+  "info": {
+    "name": "URL Shortener API",
+    "description": "Complete Postman collection for testing the URL Shortener REST API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "API Documentation",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": [""]
+        }
+      }
+    },
+    {
+      "name": "1. Create Short URL (Random ID)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"url\": \"https://github.com\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/url",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["url"]
+        }
+      }
+    },
+    {
+      "name": "2. Create Short URL (Custom Alias)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"url\": \"https://google.com\",\n  \"customAlias\": \"my-google\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/url",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["url"]
+        }
+      }
+    },
+    {
+      "name": "3. Get All Short URLs",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/url/all",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["url", "all"]
+        }
+      }
+    },
+    {
+      "name": "4. Get Analytics for Short URL",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/url/analytics/my-google",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["url", "analytics", "my-google"]
+        }
+      }
+    },
+    {
+      "name": "5. Redirect to Original URL",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/my-google",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["my-google"]
+        }
+      }
+    },
+    {
+      "name": "6. Delete Short URL",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/url/my-google",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["url", "my-google"]
+        }
+      }
+    }
+  ]
+}
