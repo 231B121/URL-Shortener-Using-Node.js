@@ -1,9 +1,14 @@
-const express = require("express");
-const { handleUserSignup, handleUserLogin } = require("../controllers/user");
+const sessionIdToUserMap = new Map();
 
-const router = express.Router();
+function setUser(id, user) {
+  sessionIdToUserMap.set(id, user);
+}
 
-router.post("/", handleUserSignup);
-router.post("/login", handleUserLogin);
+function getUser(id) {
+  return sessionIdToUserMap.get(id);
+}
 
-module.exports = router;
+module.exports = {
+  setUser,
+  getUser,
+};
